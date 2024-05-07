@@ -1,35 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+
 <head>
-    <title>Best store!</title>
-    <script type="text/javascript" src="/static/update.js"></script>
-    <link href="static/store.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/static/main.js"></script>
+    <link href="static/Style.css" rel="stylesheet">
+    <title>Comments</title>
 </head>
 
 <body>
-    <h1>Furniture store:</h1>
-    <h3>Add new product:</h3>
-    <form>
-        <div>
-            <input type="text" name="prod_name" id="prod_name">
-            <label for="prod_name">Product name</label>
+    <header class="header container">
+        <a href="#" class="logo">Магазинчик "Радости жизни"</a>
+    </header>
+    <div class="container">
+        <h1>Лучший магазин!</h1>
+        <p>Мы работаем каждый день</p>
+        <div class="info">
+            <a> Любим наших клиентов! </a>
         </div>
-        <div>
-            <input type="number" name="price" id="price">
-            <label for="price">Price (rub.)</label>
+        <h2 class="comment"> Оставьте отзыв: </h2>
+        <form>
+        <div class="text">
+            <input type="text" name="comment" id="comment">
         </div>
-        <button onClick="addProduct()">Add</button>
-    </form>
-    <ul>
-        {% for product in products_list %}
-        <li>
-            <div>
-                <div>{{ product['prod_name'] }}</div>
-                <div>{{ product['price'] }} rub.</div>
-                <input value="{{product['id']}}" onChange="updateProd(this)" name="in_stock" type="checkbox" {% if product.in_stock %} checked {% endif %}>
-                <label for="in_stock">In stock</label>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
+        <div class="stars">
+            <input type="checkbox" name="star1" id="1" value="1">
+            <label for="star1"> 1 </label>
+            <input type="checkbox" name="star2" id="2" value="2">
+            <label for="star2"> 2 </label>
+            <input type="checkbox" name="star3" id="3" value="3">
+            <label for="star3"> 3 </label>
+            <input type="checkbox" name="star4" id="4" value="4">
+            <label for="star4"> 4 </label>
+            <input type="checkbox" name="star5" id="5" value="5">
+            <label for="star5"> 5 </label>
+        </div>
+        <button onClick="addFeedback()"> Send </button>
+        </form>
+    </div>
 </body>
 </html>
